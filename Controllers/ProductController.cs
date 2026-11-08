@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using ProductCatalog.Models;
-using System.Collections.Generic;
 
 namespace ProductCatalog.Controllers
 {
@@ -11,45 +10,15 @@ namespace ProductCatalog.Controllers
         {
             var products = new List<Product>
             {
-                new Product
-                {
-                    Id = 1,
-                    Name = "Ноутбук ASUS",
-                    Price = 350000,
-                    Category = "Электроника",
-                    IsAvailable = true
-                },
-
-                new Product
-                {
-                    Id = 2,
-                    Name = "iPhone 15",
-                    Price = 420000,
-                    Category = "Смартфон",
-                    IsAvailable = true
-                },
-
-                new Product
-                {
-                    Id = 3,
-                    Name = "Құлаққап",
-                    Price = 15000,
-                    Category = "Аксессуар",
-                    IsAvailable = false
-                },
-
-                new Product
-                {
-                    Id = 4,
-                    Name = "Samsung TV",
-                    Price = 280000,
-                    Category = "Теледидар",
-                    IsAvailable = true
-                }
+                new Product { Id = 1, Name = "Ноутбук", Price = 350000, Category = "Техника", IsAvailable = true },
+                new Product { Id = 2, Name = "Телефон", Price = 250000, Category = "Техника", IsAvailable = true },
+                new Product { Id = 3, Name = "Құлаққап", Price = 15000, Category = "Аксессуар", IsAvailable = false },
+                new Product { Id = 4, Name = "Пернетақта", Price = 12000, Category = "Аксессуар", IsAvailable = true }
             };
 
-            ViewBag.StoreName = "ProductCatalog";
-            ViewBag.Description = "Біздің интернет-дүкеніміздің тауарлары"; 
+            ViewBag.Title = "Тауарлар каталогы";
+            ViewBag.Description = "Біздің интернет дүкеніміздің тауарлары";
+
             return View(products);
         }
     }

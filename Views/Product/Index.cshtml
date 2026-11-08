@@ -1,25 +1,26 @@
-@model List<ProductCatalog.Models.Product>
+@model IEnumerable<ProductCatalog.Models.Product>
 
-    @{
-    ViewData["Title"] = "Тауарлар каталогы";
-    }
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
 
-    <div class="container mt-4">
+<div class="container mt-4">
 
     <h2 class="text-center mb-3">
-        @ViewBag.StoreName
+        @ViewBag.Title
     </h2>
 
-    <p class="text-center mb-4">
+    <p class="text-center text-muted">
         @ViewBag.Description
     </p>
 
-        <div class="row">
+    <div class="row">
 
-            @foreach (var product in Model)
-            {
-            @await Html.PartialAsync("_ProductCard", product)
-            }
+        @foreach (var product in Model)
+        {
+            <partial name="_ProductCard" model="product" />
+        }
 
-        </div>
     </div>
+
+</div>

@@ -1,34 +1,60 @@
-@model ProductCatalog.Models.Product
+using Microsoft.AspNetCore.Mvc;
+using ProductCatalog.Models;
+using System.Collections.Generic;
 
-<div class="col-md-4 mb-4">
-    <div class="card shadow h-100">
-        <div class="card-body">
+namespace ProductCatalog.Controllers
+{
+public class ProductController : Controller
+{
+public IActionResult Index()
+{
+var products = new List<Product>
+{
+new Product
+{
+Id = 1,
+Name = "Ноутбук ASUS",
+Price = 350000,
+Category = "Электроника",
+IsAvailable = true,
+ImageUrl = "/images/asus.jpg"
+},
 
-            <h5 class="card-title">
-                @Model.Name
-            </h5>
+new Product
+{
+Id = 2,
+Name = "iPhone 15",
+Price = 420000,
+Category = "Смартфон",
+IsAvailable = true,
+ImageUrl = "/images/iphone.jpg"
+},
 
-            <p>
-                Категория: @Model.Category
-            </p>
+new Product
+{
+Id = 3,
+Name = "Құлаққап",
+Price = 15000,
+Category = "Аксессуар",
+IsAvailable = false,
+ImageUrl = "/images/headphones.jpg"
+},
 
-            <p>
-                Бағасы: @Model.Price ₸
-            </p>
+new Product
+{
+Id = 4,
+Name = "Samsung TV",
+Price = 280000,
+Category = "Теледидар",
+IsAvailable = true,
+ImageUrl = "/images/samsung.jpg"
+}
+};
 
-            @if (Model.IsAvailable)
-            {
-            <span class="badge bg-success">
-                Қоймада бар
-            </span>
-            }
-            else
-            {
-            <span class="badge bg-danger">
-                Қоймада жоқ
-            </span>
-            }
+ViewBag.StoreName = "ProductCatalog";
+ViewBag.Description = "Біздің интернет-дүкеніміздің тауарлары";
 
-        </div>
-    </div>
-</div>
+return View(products);
+}
+}
+}

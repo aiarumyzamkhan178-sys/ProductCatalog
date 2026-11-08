@@ -1,0 +1,34 @@
+@model ProductCatalog.Models.Product
+
+<div class="col-md-4 mb-4">
+    <div class="card shadow h-100">
+        <div class="card-body">
+
+            <h5 class="card-title">
+                @Model.Name
+            </h5>
+
+            <p>
+                Категория: @Model.Category
+            </p>
+
+            <p>
+                Бағасы: @Model.Price ₸
+            </p>
+
+            @if (Model.IsAvailable)
+            {
+            <span class="badge bg-success">
+                Қоймада бар
+            </span>
+            }
+            else
+            {
+            <span class="badge bg-danger">
+                Қоймада жоқ
+            </span>
+            }
+
+        </div>
+    </div>
+</div>

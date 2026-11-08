@@ -1,0 +1,25 @@
+@model List<ProductCatalog.Models.Product>
+
+    @{
+    ViewData["Title"] = "Тауарлар каталогы";
+    }
+
+    <div class="container mt-4">
+
+    <h2 class="text-center mb-3">
+        @ViewBag.StoreName
+    </h2>
+
+    <p class="text-center mb-4">
+        @ViewBag.Description
+    </p>
+
+        <div class="row">
+
+            @foreach (var product in Model)
+            {
+            @await Html.PartialAsync("_ProductCard", product)
+            }
+
+        </div>
+    </div>
